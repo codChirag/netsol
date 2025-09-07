@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShopEase - Shop</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">ShopEase</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="deals.html">Deals</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Shop Our Products</h1>
+    <section id="products" class="products-grid" aria-label="Product list"></section>
+  </main>
+
+  <footer>
+    <p>© 2024 ShopEase. All rights reserved.</p>
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+  <script>
+    // Render product cards from productList array
+    const productsContainer = document.getElementById('products');
+
+    function createProductCard(product) {
+      const card = document.createElement('article');
+      card.className = 'product-card';
+
+      card.innerHTML = `
+        <img class="product-image" src="${product.image}" alt="${product.name}" />
+        <h2 class="product-name">${product.name}</h2>
+        <p class="product-description">${product.description}</p>
+        <div class="product-price">$${product.price.toFixed(2)}</div>
+        <button class="btn-add-to-cart" aria-label="Add ${product.name} to cart" data-id="${product.id}">Add to Cart</button>
+      `;
+
+      return card;
+    }
+
+    // Render all products
+    productList.forEach(product => {
+      productsContainer.appendChild(createProductCard(product));
+    });
+
+    // Handle Add to Cart clicks
+    productsContainer.addEventListener('click', (e) => {
+      if (e.target.classList.contains('btn-add-to-cart')) {
+        const id = e.target.dataset.id;
+        addToCart(id);
+      }
+    });
+
+    // Update cart count on page load
+    updateCartCount();
+  </script>
+</body>
+</html>
