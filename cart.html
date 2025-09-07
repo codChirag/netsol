@@ -70,6 +70,7 @@
               <button class="btn-qty" data-id="${id}" data-action="decrease">−</button>
               <button class="btn-qty" data-id="${id}" data-action="increase">+</button>
               <button class="btn-remove" data-id="${id}">Remove</button>
+              <button id="checkout-btn" class="btn-primary" style="margin-top: 20px;">Proceed to Checkout</button>
             </div>
           </div>
         `;
@@ -103,6 +104,15 @@
 
     renderCart();
     updateCartCount();
+
+    document.getElementById('checkout-btn').addEventListener('click', () => {
+  const cart = getCart();
+  if (cart.length === 0) {
+    alert('Your cart is empty.');
+  } else {
+    window.location.href = 'purchase.html';
+  }
+});
   </script>
 </body>
 </html>
