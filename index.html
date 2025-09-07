@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ShopEase - Amazon Inspired UI</title>
+  <title>ShopEase - Amazon Inspired UI with Realistic Products</title>
   <style>
     /* Reset & base */
     * {
@@ -188,6 +188,7 @@
       text-align: center;
       cursor: pointer;
       user-select: none;
+      transition: background-color 0.2s ease;
     }
     .btn-add:hover {
       background-color: #ddb347;
@@ -273,12 +274,12 @@
     </aside>
 
     <section class="content" aria-label="Product Catalog">
-      <!-- Example product cards -->
+      <!-- Product 1 -->
       <article class="product-card" tabindex="0">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/71kxa1-0mfL._AC_UL320_.jpg" alt="Echo Dot 3rd Gen" />
-        <div class="product-title">Echo Dot (3rd Gen) - Smart speaker with Alexa</div>
-        <div class="product-rating">★★★★☆</div>
-        <div class="product-price">$29.99</div>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/714Rq4k05UL._AC_SL1000_.jpg" alt="Apple iPhone 13 Pro" />
+        <div class="product-title">Apple iPhone 13 Pro (256GB) - Sierra Blue</div>
+        <div class="product-rating">⭐⭐⭐⭐⭐</div>
+        <div class="product-price">$1,099.00</div>
         <div class="product-prime">
           <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
           FREE Delivery
@@ -286,31 +287,80 @@
         <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
       </article>
 
+      <!-- Product 2 -->
       <article class="product-card" tabindex="0">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/81eB+7+CkUL._AC_UL320_.jpg" alt="Book: Atomic Habits" />
-        <div class="product-title">Atomic Habits: An Easy & Proven Way to Build Good Habits</div>
-        <div class="product-rating">★★★★★</div>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/81eB+7+CkUL._AC_UL320_.jpg" alt="Book: Atomic Habits by James Clear" />
+        <div class="product-title">Atomic Habits: An Easy & Proven Way to Build Good Habits by James Clear</div>
+        <div class="product-rating">⭐⭐⭐⭐⭐</div>
         <div class="product-price">$11.98</div>
         <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
       </article>
 
+      <!-- Product 3 -->
       <article class="product-card" tabindex="0">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/71xykA45lqL._AC_UL320_.jpg" alt="Instant Pot Duo" />
-        <div class="product-title">Instant Pot Duo 7-in-1 Electric Pressure Cooker</div>
-        <div class="product-rating">★★★★☆</div>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/71xykA45lqL._AC_UL320_.jpg" alt="Instant Pot Duo 7-in-1" />
+        <div class="product-title">Instant Pot Duo 7-in-1 Electric Pressure Cooker, 6 Qt</div>
+        <div class="product-rating">⭐⭐⭐⭐☆</div>
         <div class="product-price">$89.99</div>
+        <div class="product-prime">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
+          FREE Delivery
+        </div>
         <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
       </article>
 
+      <!-- Product 4 -->
       <article class="product-card" tabindex="0">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/91z48PZVQAL._AC_UL320_.jpg" alt="Lego Classic Large Creative Brick Box" />
-        <div class="product-title">LEGO Classic Large Creative Brick Box 10698</div>
-        <div class="product-rating">★★★★★</div>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/91z48PZVQAL._AC_UL320_.jpg" alt="LEGO Classic Large Creative Brick Box" />
+        <div class="product-title">LEGO Classic Large Creative Brick Box 10698 Building Kit</div>
+        <div class="product-rating">⭐⭐⭐⭐⭐</div>
         <div class="product-price">$36.99</div>
         <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
       </article>
 
-      <!-- Add more product cards similarly -->
+      <!-- Product 5 -->
+      <article class="product-card" tabindex="0">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/61Y3l6jwRgL._AC_UL1500_.jpg" alt="Sony WH-1000XM4 Headphones" />
+        <div class="product-title">Sony WH-1000XM4 Wireless Noise Canceling Overhead Headphones</div>
+        <div class="product-rating">⭐⭐⭐⭐⭐</div>
+        <div class="product-price">$299.99</div>
+        <div class="product-prime">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
+          FREE Delivery
+        </div>
+        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+      </article>
+
+      <!-- Product 6 -->
+      <article class="product-card" tabindex="0">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/715kWsX7uHL._AC_UL1500_.jpg" alt="Nike Air Zoom Pegasus 37" />
+        <div class="product-title">Nike Air Zoom Pegasus 37 Running Shoes - Mens</div>
+        <div class="product-rating">⭐⭐⭐⭐☆</div>
+        <div class="product-price">$120.00</div>
+        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+      </article>
+
+      <!-- Product 7 -->
+      <article class="product-card" tabindex="0">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/81vpsIs58WL._AC_SL1500_.jpg" alt="Samsung 65-Inch QLED Q80T" />
+        <div class="product-title">Samsung 65-Inch QLED Q80T Series TV 4K UHD</div>
+        <div class="product-rating">⭐⭐⭐⭐☆</div>
+        <div class="product-price">$1,497.99</div>
+        <div class="product-prime">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
+          FREE Delivery
+        </div>
+        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+      </article>
+
+      <!-- Product 8 -->
+      <article class="product-card" tabindex="0">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51cic72B+EL._AC_SR400,600_.jpg" alt="Revlon One-Step Hair Dryer" />
+        <div class="product-title">Revlon One-Step Hair Dryer & Volumizer Hot Air Brush</div>
+        <div class="product-rating">⭐⭐⭐⭐☆</div>
+        <div class="product-price">$39.99</div>
+        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+      </article>
     </section>
   </main>
 
