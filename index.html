@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ShopEase - Amazon Inspired UI with Realistic Products</title>
+  <title>ShopEase - Expanded Amazon Inspired UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     /* Reset & base */
     * {
       box-sizing: border-box;
       margin: 0; padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Inter', Arial, sans-serif;
     }
     body {
       background: #eaeaea;
       color: #111;
+      line-height: 1.4;
+      font-size: 15px;
     }
 
     /* Header */
@@ -30,11 +33,12 @@
     }
     header .logo {
       font-size: 28px;
-      font-weight: bold;
+      font-weight: 700;
       color: #ff9900;
       cursor: pointer;
       margin-right: 20px;
       user-select: none;
+      font-family: 'Inter', sans-serif;
     }
     header .search-bar {
       flex: 1;
@@ -48,6 +52,7 @@
       padding: 8px 10px;
       border: none;
       font-size: 16px;
+      font-family: 'Inter', sans-serif;
     }
     header .search-bar button {
       background-color: #febd69;
@@ -66,6 +71,7 @@
       font-size: 14px;
       cursor: pointer;
       user-select: none;
+      font-family: 'Inter', sans-serif;
     }
     header nav div {
       display: flex;
@@ -84,111 +90,133 @@
     /* Main layout */
     main {
       display: flex;
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 20px auto;
       background: white;
       box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
       border-radius: 4px;
       overflow: hidden;
-      min-height: 600px;
+      min-height: 650px;
+      font-family: 'Inter', sans-serif;
     }
 
     /* Sidebar */
     .sidebar {
-      width: 220px;
+      width: 240px;
       background: #232f3e;
       color: white;
       padding: 20px;
+      flex-shrink: 0;
     }
     .sidebar h3 {
       margin-bottom: 15px;
       font-weight: 700;
       border-bottom: 1px solid #384556;
       padding-bottom: 8px;
+      font-family: 'Inter', sans-serif;
     }
     .category-list {
       list-style: none;
     }
     .category-list li {
-      padding: 7px 0;
+      padding: 9px 0;
       cursor: pointer;
       transition: color 0.3s ease;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
     }
-    .category-list li:hover {
+    .category-list li:hover, .category-list li.active {
       color: #febd69;
+      font-weight: 600;
     }
 
     /* Content */
     .content {
       flex: 1;
       padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
-      gap: 20px;
       overflow-y: auto;
+      max-height: 700px;
+    }
+    .category-section {
+      margin-bottom: 40px;
+    }
+    .category-section h2 {
+      border-bottom: 2px solid #febd69;
+      padding-bottom: 6px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 22px;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(230px,1fr));
+      gap: 24px;
     }
 
     /* Product Card */
     .product-card {
       border: 1px solid #ddd;
-      border-radius: 4px;
+      border-radius: 6px;
       background: white;
-      padding: 10px;
+      padding: 12px;
       display: flex;
       flex-direction: column;
       transition: box-shadow 0.3s ease;
       cursor: pointer;
     }
     .product-card:hover {
-      box-shadow: 0 2px 12px rgb(0 0 0 / 0.2);
+      box-shadow: 0 4px 16px rgb(0 0 0 / 0.22);
     }
     .product-card img {
       max-width: 100%;
       object-fit: contain;
-      height: 180px;
-      margin-bottom: 10px;
+      height: 160px;
+      margin-bottom: 14px;
       align-self: center;
+      border-radius: 4px;
     }
     .product-title {
       font-size: 15px;
-      line-height: 1.2;
-      height: 40px;
+      line-height: 1.3;
+      height: 44px;
       overflow: hidden;
       margin-bottom: 5px;
       color: #0f1111;
+      font-weight: 600;
     }
     .product-rating {
       color: #febd69;
-      margin-bottom: 5px;
+      margin-bottom: 7px;
       font-size: 14px;
     }
     .product-price {
       font-weight: 700;
-      font-size: 18px;
+      font-size: 17px;
       margin-bottom: 10px;
       color: #b12704;
     }
     .product-prime {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
       font-size: 12px;
       color: #007600;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
     .product-prime img {
-      height: 20px;
+      height: 22px;
     }
     .btn-add {
       background-color: #f0c14b;
-      border-radius: 2px;
+      border-radius: 3px;
       border: 1px solid #a88734;
-      padding: 8px 0;
-      font-weight: 600;
+      padding: 9px 0;
+      font-weight: 700;
       text-align: center;
       cursor: pointer;
       user-select: none;
       transition: background-color 0.2s ease;
+      font-family: 'Inter', sans-serif;
     }
     .btn-add:hover {
       background-color: #ddb347;
@@ -203,10 +231,11 @@
       margin-top: 30px;
       font-size: 14px;
       user-select: none;
+      font-family: 'Inter', sans-serif;
     }
 
     /* Responsive */
-    @media(max-width: 850px){
+    @media(max-width: 1024px){
       main {
         flex-direction: column;
       }
@@ -214,21 +243,27 @@
         width: 100%;
         display: flex;
         overflow-x: auto;
-        padding: 10px;
-        gap: 15px;
+        padding: 12px 10px;
+        gap: 18px;
       }
       .sidebar h3 {
         display: none;
       }
       .category-list {
         display: flex;
-        gap: 15px;
+        gap: 18px;
       }
       .category-list li {
         white-space: nowrap;
       }
       .content {
+        max-height: none;
+      }
+      .products-grid {
         grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+      }
+      .product-card img {
+        height: 120px;
       }
     }
   </style>
@@ -263,104 +298,279 @@
     <aside class="sidebar" aria-label="Categories">
       <h3>Shop by Category</h3>
       <ul class="category-list" role="list">
-        <li tabindex="0">Electronics</li>
-        <li tabindex="0">Books</li>
-        <li tabindex="0">Home & Kitchen</li>
-        <li tabindex="0">Toys & Games</li>
-        <li tabindex="0">Clothing</li>
-        <li tabindex="0">Sports</li>
-        <li tabindex="0">Beauty</li>
+        <li class="active" data-category="electronics" tabindex="0">Electronics</li>
+        <li data-category="books" tabindex="0">Books</li>
+        <li data-category="home" tabindex="0">Home & Kitchen</li>
+        <li data-category="toys" tabindex="0">Toys & Games</li>
+        <li data-category="clothing" tabindex="0">Clothing</li>
+        <li data-category="sports" tabindex="0">Sports</li>
+        <li data-category="beauty" tabindex="0">Beauty</li>
       </ul>
     </aside>
 
     <section class="content" aria-label="Product Catalog">
-      <!-- Product 1 -->
-      <article class="product-card" tabindex="0">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/714Rq4k05UL._AC_SL1000_.jpg" alt="Apple iPhone 13 Pro" />
-        <div class="product-title">Apple iPhone 13 Pro (256GB) - Sierra Blue</div>
-        <div class="product-rating">⭐⭐⭐⭐⭐</div>
-        <div class="product-price">$1,099.00</div>
-        <div class="product-prime">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
-          FREE Delivery
+
+      <!-- Electronics -->
+      <div class="category-section" data-category-section="electronics">
+        <h2>Electronics</h2>
+        <div class="products-grid">
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71kxa1-0mfL._AC_SL1500_.jpg" alt="Amazon Echo Dot (4th Gen)" />
+            <div class="product-title">Amazon Echo Dot (4th Gen) | Smart speaker with Alexa</div>
+            <div class="product-rating">⭐⭐⭐⭐☆</div>
+            <div class="product-price">$49.99</div>
+            <div class="product-prime">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
+              FREE Delivery
+            </div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/61W0kcmv-QL._AC_SL1500_.jpg" alt="Sony WH-1000XM4 Headphones" />
+            <div class="product-title">Sony WH-1000XM4 Wireless Noise Canceling Headphones</div>
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-price">$348.00</div>
+            <div class="product-prime">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
+              FREE Delivery
+            </div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81hF8F1pK9L._AC_SL1500_.jpg" alt="Samsung Galaxy Tab S7" />
+            <div class="product-title">Samsung Galaxy Tab S7 Wi-Fi, Mystic Black - 11" Tablet</div>
+            <div class="product-rating">⭐⭐⭐⭐☆</div>
+            <div class="product-price">$649.99</div>
+            <div class="product-prime">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
+              FREE Delivery
+            </div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71xykA45lqL._AC_UL320_.jpg" alt="Instant Pot Duo 7-in-1" />
+            <div class="product-title">Instant Pot Duo 7-in-1 Electric Pressure Cooker, 6 Qt</div>
+            <div class="product-rating">⭐⭐⭐⭐☆</div>
+            <div class="product-price">$89.99</div>
+            <div class="product-prime">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
+              FREE Delivery
+            </div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
         </div>
-        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
-      </article>
+      </div>
 
-      <!-- Product 2 -->
-      <article class="product-card" tabindex="0">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/81eB+7+CkUL._AC_UL320_.jpg" alt="Book: Atomic Habits by James Clear" />
-        <div class="product-title">Atomic Habits: An Easy & Proven Way to Build Good Habits by James Clear</div>
-        <div class="product-rating">⭐⭐⭐⭐⭐</div>
-        <div class="product-price">$11.98</div>
-        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
-      </article>
+      <!-- Books -->
+      <div class="category-section" data-category-section="books" hidden>
+        <h2>Books</h2>
+        <div class="products-grid">
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81eB+7+CkUL._AC_UL320_.jpg" alt="Atomic Habits by James Clear" />
+            <div class="product-title">Atomic Habits: An Easy & Proven Way to Build Good Habits</div>
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-price">$11.98</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
 
-      <!-- Product 3 -->
-      <article class="product-card" tabindex="0">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/71xykA45lqL._AC_UL320_.jpg" alt="Instant Pot Duo 7-in-1" />
-        <div class="product-title">Instant Pot Duo 7-in-1 Electric Pressure Cooker, 6 Qt</div>
-        <div class="product-rating">⭐⭐⭐⭐☆</div>
-        <div class="product-price">$89.99</div>
-        <div class="product-prime">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
-          FREE Delivery
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/91asIC1fRwL.jpg" alt="The Subtle Art of Not Giving a F*ck" />
+            <div class="product-title">The Subtle Art of Not Giving a F*ck by Mark Manson</div>
+            <div class="product-rating">⭐⭐⭐⭐☆</div>
+            <div class="product-price">$14.99</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81OthjkJBuL.jpg" alt="Becoming by Michelle Obama" />
+            <div class="product-title">Becoming by Michelle Obama</div>
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-price">$19.99</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71uaiBxH4LL.jpg" alt="Educated by Tara Westover" />
+            <div class="product-title">Educated: A Memoir by Tara Westover</div>
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-price">$15.99</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
         </div>
-        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
-      </article>
+      </div>
 
-      <!-- Product 4 -->
-      <article class="product-card" tabindex="0">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/91z48PZVQAL._AC_UL320_.jpg" alt="LEGO Classic Large Creative Brick Box" />
-        <div class="product-title">LEGO Classic Large Creative Brick Box 10698 Building Kit</div>
-        <div class="product-rating">⭐⭐⭐⭐⭐</div>
-        <div class="product-price">$36.99</div>
-        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
-      </article>
+      <!-- Home & Kitchen -->
+      <div class="category-section" data-category-section="home" hidden>
+        <h2>Home & Kitchen</h2>
+        <div class="products-grid">
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81v+LuBzsql._AC_SL1500_.jpg" alt="Ninja Air Fryer" />
+            <div class="product-title">Ninja AF101 Air Fryer, Black</div>
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-price">$99.99</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71ZsS0Wf4kL._AC_SL1500_.jpg" alt="iRobot Roomba 675" />
+            <div class="product-title">iRobot Roomba 675 Robot Vacuum-Wi-Fi Connectivity</div>
+            <div class="product-rating">⭐⭐⭐⭐☆</div>
+            <div class="product-price">$249.99</div>
+            <div class="product-prime">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
+              FREE Delivery
+            </div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
 
-      <!-- Product 5 -->
-      <article class="product-card" tabindex="0">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/61Y3l6jwRgL._AC_UL1500_.jpg" alt="Sony WH-1000XM4 Headphones" />
-        <div class="product-title">Sony WH-1000XM4 Wireless Noise Canceling Overhead Headphones</div>
-        <div class="product-rating">⭐⭐⭐⭐⭐</div>
-        <div class="product-price">$299.99</div>
-        <div class="product-prime">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
-          FREE Delivery
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81VvjMTCWaL._AC_SL1500_.jpg" alt="Sofa Linens Throw Blanket" />
+            <div class="product-title">Sofa Linens Throw Blanket Oversized Cozy Plush Blanket</div>
+            <div class="product-rating">⭐⭐⭐⭐☆</div>
+            <div class="product-price">$28.99</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/717Ba2TpvHL._AC_SL1500_.jpg" alt="Instant Pot Duo Nova" />
+            <div class="product-title">Instant Pot Duo Nova 7-in-1 Electric Pressure Cooker, 6 Quart</div>
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-price">$79.99</div>
+            <div class="product-prime">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
+              FREE Delivery
+            </div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
         </div>
-        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
-      </article>
+      </div>
 
-      <!-- Product 6 -->
-      <article class="product-card" tabindex="0">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/715kWsX7uHL._AC_UL1500_.jpg" alt="Nike Air Zoom Pegasus 37" />
-        <div class="product-title">Nike Air Zoom Pegasus 37 Running Shoes - Mens</div>
-        <div class="product-rating">⭐⭐⭐⭐☆</div>
-        <div class="product-price">$120.00</div>
-        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
-      </article>
+      <!-- Toys & Games -->
+      <div class="category-section" data-category-section="toys" hidden>
+        <h2>Toys & Games</h2>
+        <div class="products-grid">
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81gRf7aH6iL._AC_SL1500_.jpg" alt="LEGO Star Wars The Mandalorian The Razor Crest" />
+            <div class="product-title">LEGO Star Wars The Mandalorian The Razor Crest 75292</div>
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-price">$129.99</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
 
-      <!-- Product 7 -->
-      <article class="product-card" tabindex="0">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/81vpsIs58WL._AC_SL1500_.jpg" alt="Samsung 65-Inch QLED Q80T" />
-        <div class="product-title">Samsung 65-Inch QLED Q80T Series TV 4K UHD</div>
-        <div class="product-rating">⭐⭐⭐⭐☆</div>
-        <div class="product-price">$1,497.99</div>
-        <div class="product-prime">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
-          FREE Delivery
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81bo7rELVPL._AC_SL1500_.jpg" alt="Barbie Dreamhouse Dollhouse" />
+            <div class="product-title">Barbie Dreamhouse Dollhouse with Pool, Slide & Elevator</div>
+            <div class="product-rating">⭐⭐⭐⭐☆</div>
+            <div class="product-price">$179.00</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/816ZvwISAIL._AC_SL1500_.jpg" alt="Exploding Kittens Card Game" />
+            <div class="product-title">Exploding Kittens Card Game</div>
+            <div class="product-rating">⭐⭐⭐⭐☆</div>
+            <div class="product-price">$19.99</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
         </div>
-        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
-      </article>
+      </div>
 
-      <!-- Product 8 -->
-      <article class="product-card" tabindex="0">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/51cic72B+EL._AC_SR400,600_.jpg" alt="Revlon One-Step Hair Dryer" />
-        <div class="product-title">Revlon One-Step Hair Dryer & Volumizer Hot Air Brush</div>
-        <div class="product-rating">⭐⭐⭐⭐☆</div>
-        <div class="product-price">$39.99</div>
-        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
-      </article>
+      <!-- Clothing -->
+      <div class="category-section" data-category-section="clothing" hidden>
+        <h2>Clothing</h2>
+        <div class="products-grid">
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81pVq0y4AUL._AC_UX522_.jpg" alt="Levi's Men's 505 Regular Fit Jeans" />
+            <div class="product-title">Levi's Men's 505 Regular Fit Jeans</div>
+            <div class="product-rating">⭐⭐⭐⭐☆</div>
+            <div class="product-price">$39.99</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71MZ7rf5dtL._AC_UX522_.jpg" alt="Columbia Women's Benton Springs Full Zip Fleece Jacket" />
+            <div class="product-title">Columbia Women's Benton Springs Full Zip Fleece Jacket</div>
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-price">$34.99</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/91vVTq7WL0L._AC_UX679_.jpg" alt="Under Armour Men's Tech 2.0 Short Sleeve T-Shirt" />
+            <div class="product-title">Under Armour Men's Tech 2.0 Short Sleeve T-Shirt</div>
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-price">$21.99</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Sports -->
+      <div class="category-section" data-category-section="sports" hidden>
+        <h2>Sports</h2>
+        <div class="products-grid">
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81W6F+7tXUL._AC_SL1500_.jpg" alt="Fitbit Charge 4 Fitness and Activity Tracker" />
+            <div class="product-title">Fitbit Charge 4 Fitness and Activity Tracker</div>
+            <div class="product-rating">⭐⭐⭐⭐☆</div>
+            <div class="product-price">$99.95</div>
+            <div class="product-prime">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
+              FREE Delivery
+            </div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71uo3övClL._AC_SL1500_.jpg" alt="Wilson Evolution Game Basketball" />
+            <div class="product-title">Wilson Evolution Game Basketball</div>
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-price">$59.99</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/8133TW-pdHL._AC_SL1500_.jpg" alt="Nike Men's Tanjun Running Shoes" />
+            <div class="product-title">Nike Men's Tanjun Running Shoes</div>
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-price">$65.00</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Beauty -->
+      <div class="category-section" data-category-section="beauty" hidden>
+        <h2>Beauty</h2>
+        <div class="products-grid">
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/61+emmgsh9L._AC_SL1500_.jpg" alt="Olay Regenerist Micro-Sculpting Cream Face Moisturizer" />
+            <div class="product-title">Olay Regenerist Micro-Sculpting Cream Face Moisturizer</div>
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-price">$24.99</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/61hVfEOVhFL._AC_SL1500_.jpg" alt="Revlon One-Step Hair Dryer & Volumizer" />
+            <div class="product-title">Revlon One-Step Hair Dryer & Volumizer Hot Air Brush</div>
+            <div class="product-rating">⭐⭐⭐⭐☆</div>
+            <div class="product-price">$39.99</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+
+          <article class="product-card" tabindex="0">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71zettmDnmL._AC_SL1500_.jpg" alt="Maybelline New York SuperStay Matte Ink Liquid Lipstick" />
+            <div class="product-title">Maybelline New York SuperStay Matte Ink Liquid Lipstick</div>
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-price">$9.97</div>
+            <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+          </article>
+        </div>
+      </div>
+
     </section>
   </main>
 
@@ -369,6 +579,27 @@
   </footer>
 
   <script>
+    // Handle category sidebar clicks to show/hide category sections
+    const categoryListItems = document.querySelectorAll('.category-list li');
+    const allCategorySections = document.querySelectorAll('.category-section');
+
+    categoryListItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const cat = item.getAttribute('data-category');
+
+        categoryListItems.forEach(li => li.classList.remove('active'));
+        item.classList.add('active');
+
+        allCategorySections.forEach(section => {
+          if (section.getAttribute('data-category-section') === cat) {
+            section.hidden = false;
+          } else {
+            section.hidden = true;
+          }
+        });
+      });
+    });
+
     // Minimal Add to Cart simulation (alert)
     document.querySelectorAll('.btn-add').forEach(btn => {
       btn.addEventListener('click', () => {
