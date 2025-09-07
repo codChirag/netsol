@@ -3,114 +3,333 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ShopEase - Purchase</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>ShopEase - Amazon Inspired UI</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background: #eaeaea;
+      color: #111;
+    }
+
+    /* Header */
+    header {
+      background-color: #131921;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: 60px;
+    }
+    header .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ff9900;
+      cursor: pointer;
+      margin-right: 20px;
+      user-select: none;
+    }
+    header .search-bar {
+      flex: 1;
+      display: flex;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-right: 20px;
+    }
+    header .search-bar input[type="text"] {
+      flex: 1;
+      padding: 8px 10px;
+      border: none;
+      font-size: 16px;
+    }
+    header .search-bar button {
+      background-color: #febd69;
+      border: none;
+      padding: 0 16px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    header .search-bar button:hover {
+      background-color: #f3a847;
+    }
+    header nav {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+    }
+    header nav div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    header nav .line1 {
+      font-size: 12px;
+      color: #ccc;
+    }
+    header nav .line2 {
+      font-weight: 700;
+      color: white;
+    }
+
+    /* Main layout */
+    main {
+      display: flex;
+      max-width: 1200px;
+      margin: 20px auto;
+      background: white;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      min-height: 600px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: #232f3e;
+      color: white;
+      padding: 20px;
+    }
+    .sidebar h3 {
+      margin-bottom: 15px;
+      font-weight: 700;
+      border-bottom: 1px solid #384556;
+      padding-bottom: 8px;
+    }
+    .category-list {
+      list-style: none;
+    }
+    .category-list li {
+      padding: 7px 0;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .category-list li:hover {
+      color: #febd69;
+    }
+
+    /* Content */
+    .content {
+      flex: 1;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+      gap: 20px;
+      overflow-y: auto;
+    }
+
+    /* Product Card */
+    .product-card {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: white;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      box-shadow: 0 2px 12px rgb(0 0 0 / 0.2);
+    }
+    .product-card img {
+      max-width: 100%;
+      object-fit: contain;
+      height: 180px;
+      margin-bottom: 10px;
+      align-self: center;
+    }
+    .product-title {
+      font-size: 15px;
+      line-height: 1.2;
+      height: 40px;
+      overflow: hidden;
+      margin-bottom: 5px;
+      color: #0f1111;
+    }
+    .product-rating {
+      color: #febd69;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+    .product-price {
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #b12704;
+    }
+    .product-prime {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: #007600;
+      margin-bottom: 10px;
+    }
+    .product-prime img {
+      height: 20px;
+    }
+    .btn-add {
+      background-color: #f0c14b;
+      border-radius: 2px;
+      border: 1px solid #a88734;
+      padding: 8px 0;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .btn-add:hover {
+      background-color: #ddb347;
+    }
+
+    /* Footer */
+    footer {
+      background: #131921;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      margin-top: 30px;
+      font-size: 14px;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media(max-width: 850px){
+      main {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        padding: 10px;
+        gap: 15px;
+      }
+      .sidebar h3 {
+        display: none;
+      }
+      .category-list {
+        display: flex;
+        gap: 15px;
+      }
+      .category-list li {
+        white-space: nowrap;
+      }
+      .content {
+        grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="logo">ShopEase</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="deals.html">Deals</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
-      </ul>
+    <div class="logo" tabindex="0" aria-label="ShopEase Home">ShopEase</div>
+    <div class="search-bar" role="search">
+      <input type="text" aria-label="Search products" placeholder="Search ShopEase" />
+      <button aria-label="Search">🔍</button>
+    </div>
+    <nav aria-label="Primary">
+      <div tabindex="0" role="link" aria-label="Account & Lists">
+        <span class="line1">Hello, Sign in</span>
+        <span class="line2">Account & Lists</span>
+      </div>
+      <div tabindex="0" role="link" aria-label="Returns & Orders">
+        <span class="line1">Returns</span>
+        <span class="line2">& Orders</span>
+      </div>
+      <div tabindex="0" role="link" aria-label="Your Prime">
+        <span class="line1">Your</span>
+        <span class="line2">Prime</span>
+      </div>
+      <div tabindex="0" role="link" aria-label="Shopping Cart">
+        🛒
+      </div>
     </nav>
   </header>
 
-  <main class="container">
-    <h1>Purchase Details</h1>
-    <section id="cart-summary"></section>
+  <main>
+    <aside class="sidebar" aria-label="Categories">
+      <h3>Shop by Category</h3>
+      <ul class="category-list" role="list">
+        <li tabindex="0">Electronics</li>
+        <li tabindex="0">Books</li>
+        <li tabindex="0">Home & Kitchen</li>
+        <li tabindex="0">Toys & Games</li>
+        <li tabindex="0">Clothing</li>
+        <li tabindex="0">Sports</li>
+        <li tabindex="0">Beauty</li>
+      </ul>
+    </aside>
 
-    <h2>Shipping Information</h2>
-    <form id="purchaseForm">
-      <label for="fullName">Full Name:</label><br />
-      <input type="text" id="fullName" name="fullName" required /><br />
+    <section class="content" aria-label="Product Catalog">
+      <!-- Example product cards -->
+      <article class="product-card" tabindex="0">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/71kxa1-0mfL._AC_UL320_.jpg" alt="Echo Dot 3rd Gen" />
+        <div class="product-title">Echo Dot (3rd Gen) - Smart speaker with Alexa</div>
+        <div class="product-rating">★★★★☆</div>
+        <div class="product-price">$29.99</div>
+        <div class="product-prime">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Amazon_Prime_logo.png" alt="Prime eligible" />
+          FREE Delivery
+        </div>
+        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+      </article>
 
-      <label for="address">Address:</label><br />
-      <textarea id="address" name="address" rows="3" required></textarea><br />
+      <article class="product-card" tabindex="0">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/81eB+7+CkUL._AC_UL320_.jpg" alt="Book: Atomic Habits" />
+        <div class="product-title">Atomic Habits: An Easy & Proven Way to Build Good Habits</div>
+        <div class="product-rating">★★★★★</div>
+        <div class="product-price">$11.98</div>
+        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+      </article>
 
-      <label for="city">City:</label><br />
-      <input type="text" id="city" name="city" required /><br />
+      <article class="product-card" tabindex="0">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/71xykA45lqL._AC_UL320_.jpg" alt="Instant Pot Duo" />
+        <div class="product-title">Instant Pot Duo 7-in-1 Electric Pressure Cooker</div>
+        <div class="product-rating">★★★★☆</div>
+        <div class="product-price">$89.99</div>
+        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+      </article>
 
-      <label for="state">State/Province:</label><br />
-      <input type="text" id="state" name="state" required /><br />
+      <article class="product-card" tabindex="0">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/91z48PZVQAL._AC_UL320_.jpg" alt="Lego Classic Large Creative Brick Box" />
+        <div class="product-title">LEGO Classic Large Creative Brick Box 10698</div>
+        <div class="product-rating">★★★★★</div>
+        <div class="product-price">$36.99</div>
+        <div class="btn-add" role="button" tabindex="0">Add to Cart</div>
+      </article>
 
-      <label for="zip">Zip/Postal Code:</label><br />
-      <input type="text" id="zip" name="zip" required /><br />
-
-      <label for="country">Country:</label><br />
-      <input type="text" id="country" name="country" required /><br />
-
-      <button type="submit" class="btn-primary" style="margin-top: 1rem;">Proceed to Payment</button>
-    </form>
+      <!-- Add more product cards similarly -->
+    </section>
   </main>
 
   <footer>
-    <p>© 2024 ShopEase. All rights reserved.</p>
+    © 2024 ShopEase - Inspired by Amazon UI
   </footer>
 
-  <script src="products.js"></script>
-  <script src="cart.js"></script>
   <script>
-    const cartSummary = document.getElementById('cart-summary');
-
-    function renderCartSummary() {
-      const cart = getCart();
-      if (cart.length === 0) {
-        cartSummary.innerHTML = '<p>Your cart is empty. Please add products before purchasing.</p>';
-        document.getElementById('purchaseForm').style.display = 'none';
-        return;
-      }
-
-      let total = 0;
-      let html = '<h2>Order Summary</h2><ul>';
-
-      cart.forEach(({ id, quantity }) => {
-        const product = productList.find(p => p.id === id);
-        if (!product) return;
-
-        const subtotal = product.price * quantity;
-        total += subtotal;
-        html += `<li>${product.name} × ${quantity} = $${subtotal.toFixed(2)}</li>`;
+    // Minimal Add to Cart simulation (alert)
+    document.querySelectorAll('.btn-add').forEach(btn => {
+      btn.addEventListener('click', () => {
+        alert('Added to cart!');
       });
-
-      html += `</ul><p><strong>Total: $${total.toFixed(2)}</strong></p>`;
-      cartSummary.innerHTML = html;
-    }
-
-    renderCartSummary();
-
-    // Handle shipping info form submit
-    document.getElementById('purchaseForm').addEventListener('submit', e => {
-      e.preventDefault();
-
-      // Collect shipping info
-      const shippingInfo = {
-        fullName: e.target.fullName.value.trim(),
-        address: e.target.address.value.trim(),
-        city: e.target.city.value.trim(),
-        state: e.target.state.value.trim(),
-        zip: e.target.zip.value.trim(),
-        country: e.target.country.value.trim()
-      };
-
-      if (Object.values(shippingInfo).some(field => field === '')) {
-        alert('Please fill in all shipping details.');
-        return;
-      }
-
-      // Save shipping info to sessionStorage temporarily
-      sessionStorage.setItem('shippingInfo', JSON.stringify(shippingInfo));
-
-      // Redirect to payment page
-      window.location.href = 'payment.html';
+      btn.addEventListener('keypress', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          btn.click();
+        }
+      });
     });
-
-    updateCartCount();
   </script>
 </body>
 </html>
